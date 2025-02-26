@@ -1,3 +1,4 @@
+// 10 fantasy books
 const fantasyBooksArray = [
   'Harry Potter',
   'The Hobbit',
@@ -11,6 +12,7 @@ const fantasyBooksArray = [
   'The Night Circus',
 ];
 
+// 8 action books, 2 overlap
 const actionBooksArray = [
   'The Hunger Games',
   'Divergent',
@@ -18,9 +20,8 @@ const actionBooksArray = [
   'Ready Player One',
   "Ender's Game",
   'The Mortal Instruments',
-  // overlap
-  'The Lord of the Rings',
-  'A Song of Ice and Fire',
+  'The Lord of the Rings', // overlap
+  'A Song of Ice and Fire', // overlap
 ];
 
 const fantasyBooksSet = new Set(fantasyBooksArray);
