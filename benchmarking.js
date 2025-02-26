@@ -13,7 +13,7 @@ import {
   isSubsetOfArray,
   isSubsetOfSet,
   isSupersetOfArray,
-  isSupersetOfSet
+  isSupersetOfSet,
 } from './comparing-books.js';
 
 /* ------------- Make Fake Data ------------- */
@@ -63,61 +63,56 @@ Deno.bench('difference set  :', () => {
 });
 
 // (intersection) Return books that are both fantasy & action
-Deno.bench('array: filter/includes', () => {
+Deno.bench('intersection array:', () => {
   intersectionArray(fantasyBooksArray, actionBooksArray);
 });
 
-Deno.bench('set  : intersection', () => {
+Deno.bench('intersection set  :', () => {
   intersectionSet(fantasyBooksSet, actionBooksSet);
 });
 
 // (symmetricDifference) Return books that are either fantasy or action but not both
-Deno.bench('array: filter/includes/concat', () => {
-  const overlap = fantasyBooksArray.filter((book) =>
-    actionBooksArray.includes(book)
-  );
-  return fantasyBooksArray
-    .concat(actionBooksArray)
-    .filter((book) => !overlap.includes(book));
+Deno.bench('symmetricDifference array:', () => {
+  symmetricDifferenceArray(fantasyBooksArray, actionBooksArray);
 });
 
-Deno.bench('set  : symmetricDifference', () => {
-  fantasyBooksSet.symmetricDifference(actionBooksSet);
+Deno.bench('symmetricDifference set  :', () => {
+  symmetricDifferenceSet(fantasyBooksSet, actionBooksSet);
 });
 
 // (union) Return all fantasy & action books
-Deno.bench('array: concat & new Set', () => {
-  [...new Set(fantasyBooksArray.concat(actionBooksArray))];
+Deno.bench('union array:', () => {
+  unionArray(fantasyBooksArray, actionBooksArray);
 });
 
-Deno.bench('set  : union', () => {
-  fantasyBooksSet.union(actionBooksSet);
+Deno.bench('union set  :', () => {
+  unionSet(fantasyBooksSet, actionBooksSet);
 });
 
 // (isDisjointFrom) Check if two genres are disjoint
 // meaning none of the same books
-Deno.bench('array: every/not-includes', () => {
-  fantasyBooksArray.every((book) => !actionBooksArray.includes(book));
+Deno.bench('isDisjointFrom array:', () => {
+  isDisjointFromArray(fantasyBooksArray, actionBooksArray);
 });
 
-Deno.bench('set  : isDisjointFrom', () => {
-  fantasyBooksSet.isDisjointFrom(actionBooksSet);
+Deno.bench('isDisjointFrom set  :', () => {
+  isDisjointFromSet(fantasyBooksSet, actionBooksSet);
 });
 
 // (isSubsetOf) Check if one genre is a subset of another
-Deno.bench('array: every/includes', () => {
-  fantasyBooksArray.every((book) => actionBooksArray.includes(book));
+Deno.bench('isSubsetOf array:', () => {
+  isSubsetOfArray(fantasyBooksArray, actionBooksArray);
 });
 
-Deno.bench('set  : isSubsetOf', () => {
+Deno.bench('isSubsetOf set  :', () => {
   fantasyBooksSet.isSubsetOf(actionBooksSet);
 });
 
 // (isSupersetOf) Check if one genre is a superset of another
-Deno.bench('array: every/includes', () => {
-  actionBooksArray.every((book) => fantasyBooksArray.includes(book));
+Deno.bench('isSupersetOf array:', () => {
+  isSupersetOfArray(fantasyBooksArray, actionBooksArray);
 });
 
-Deno.bench('set  : isSupersetOf', () => {
-  actionBooksSet.isSupersetOf(fantasyBooksSet);
+Deno.bench('isSupersetOf set  :', () => {
+  isSupersetOfSet(fantasyBooksSet, actionBooksSet);
 });
