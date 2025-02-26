@@ -2,14 +2,14 @@
 const fantasyBooksArray = [
   'Harry Potter',
   'The Hobbit',
-  'The Lord of the Rings',
-  'A Song of Ice and Fire',
   'The Chronicles of Narnia',
   'Percy Jackson & the Olympians',
   'The Magicians',
   'His Dark Materials',
   'American Gods',
   'The Night Circus',
+  'The Lord of the Rings', // overlap
+  'A Song of Ice and Fire', // overlap
 ];
 
 // 8 action books, 2 overlap
