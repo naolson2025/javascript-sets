@@ -105,7 +105,7 @@ Deno.bench('isSubsetOf array:', () => {
 });
 
 Deno.bench('isSubsetOf set  :', () => {
-  fantasyBooksSet.isSubsetOf(actionBooksSet);
+  isSubsetOfSet(fantasyBooksSet, actionBooksSet);
 });
 
 // (isSupersetOf) Check if one genre is a superset of another
